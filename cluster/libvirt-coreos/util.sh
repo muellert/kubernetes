@@ -29,7 +29,7 @@ export LIBVIRT_DEFAULT_URI=qemu:///system
 export SERVICE_ACCOUNT_LOOKUP=${SERVICE_ACCOUNT_LOOKUP:-true}
 export ADMISSION_CONTROL=${ADMISSION_CONTROL:-Initializers,NamespaceLifecycle,LimitRanger,ServiceAccount,DefaultStorageClass,PersistentVolumeClaimResize,DefaultTolerationSeconds,PVCProtection,ResourceQuota}
 readonly POOL=kubernetes
-readonly POOL_PATH=/var/lib/libvirt/images/kubernetes
+readonly POOL_PATH=${POOL_PATH:=/var/lib/libvirt/images/kubernetes}
 
 [ ! -d "${POOL_PATH}" ] && (echo "$POOL_PATH" does not exist ; exit 1 )
 
